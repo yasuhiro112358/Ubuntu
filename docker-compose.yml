@@ -1,0 +1,27 @@
+services:
+  ubuntu:
+    build: .
+    volumes:
+      - ./ubuntu_24_04/bin:/bin
+      - ./ubuntu_24_04/boot:/boot
+      # 特別なファイルシステムのためマウントできない
+      # - ./ubuntu_24_04/dev:/dev
+      - ./ubuntu_24_04/etc:/etc
+      - ./ubuntu_24_04/home:/home
+      - ./ubuntu_24_04/lib:/lib
+      - ./ubuntu_24_04/media:/media
+      - ./ubuntu_24_04/mnt:/mnt
+      - ./ubuntu_24_04/opt:/opt
+      # 特別なファイルシステムのためマウントできない
+      # - ./ubuntu_24_04/proc:/proc
+      - ./ubuntu_24_04/root:/root
+      - ./ubuntu_24_04/run:/run
+      - ./ubuntu_24_04/sbin:/sbin
+      - ./ubuntu_24_04/srv:/srv
+      - ./ubuntu_24_04/sys:/sys
+      - ./ubuntu_24_04/tmp:/tmp
+      - ./ubuntu_24_04/usr:/usr
+      - ./ubuntu_24_04/var:/var
+      - ./ubuntu_24_04/.dockerenv:/.dockerenv
+    # 対話型シェルを有効にする
+    tty: true
