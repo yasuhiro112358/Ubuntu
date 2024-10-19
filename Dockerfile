@@ -10,8 +10,14 @@ RUN apt-get install -y vim
 RUN apt-get install -y git
 RUN apt-get install -y php
 
+# Copy the new Apache configuration file
+COPY ubuntu_24_04/etc/apache2/sites-available/site_1.conf /etc/apache2/sites-available/site_1.conf
+
+# Enable the new site configuration
+RUN a2dissite 000-default.conf 
+RUN a2ensite site_1.conf
+
 # Clean up the package cache
 RUN rm -rf /var/lib/apt/lists/*
 
-# Define the default command to run when starting the container
-CMD ["bash"]
+CMD ["apachectl", "-D", "FOREGROUND"]

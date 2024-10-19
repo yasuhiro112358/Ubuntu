@@ -3,4 +3,7 @@ services:
     build: .
     volumes:
       - ./ubuntu_24_04/var/www/site_1:/var/www/site_1
-    tty: true # 対話型シェルを有効にする
+      - ./ubuntu_24_04/etc/apache2/sites-available/site_1.conf:/etc/apache2/sites-available/site_1.conf
+    ports:
+      - "8080:80"
+    tty: true # Enable interactive shell
