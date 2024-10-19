@@ -2,13 +2,5 @@ services:
   ubuntu:
     build: .
     volumes:
-      - ./ubuntu_24_04/etc:/etc
-      - ./ubuntu_24_04/home:/home
-      - ./ubuntu_24_04/media:/media
-      - ./ubuntu_24_04/mnt:/mnt
-      - ./ubuntu_24_04/opt:/opt
-      - ./ubuntu_24_04/root:/root
-      - ./ubuntu_24_04/run:/run
-      - ./ubuntu_24_04/srv:/srv
-      - ./ubuntu_24_04/tmp:/tmp
+      - ./ubuntu_24_04/var/www/site_1:/var/www/site_1
     tty: true # 対話型シェルを有効にする
